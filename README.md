@@ -1,3 +1,7 @@
+# Next Play
+This is my idea to build a full website where gamers can come to build a game plan of attack on their huge backlog of games as I have found myself compiling list and forgetting what I wanted to play only to start a new game or add more games to my list but only in memory.
+
+Focuses for this website
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
