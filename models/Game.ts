@@ -5,7 +5,8 @@ import type { Platform } from "./Platform";
 export interface Game {
     id: number;
     name: string;
-    metacritic?: number;
+    rating?: number;
     platforms: Platform[];   // More detailed platform information
     releaseDate: string;
+    timeToBeat?: number
 }
