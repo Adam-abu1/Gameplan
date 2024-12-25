@@ -1,4 +1,5 @@
 <template>
+
 	<h1>Game Title</h1>
 
 	<button>Add to Game plan</button>

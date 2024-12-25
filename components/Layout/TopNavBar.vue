@@ -1,11 +1,10 @@
 <template>
-
+  <nav>
+    <div></div>
+  </nav>
 </template>
 
-<script>
-export default {
-	name: "TopNavBar"
-}
+<script setup lang="ts">
 </script>
 
 <style scoped>

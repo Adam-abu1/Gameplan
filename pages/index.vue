@@ -29,7 +29,5 @@ console.log(sampleGames)
 </script>
 
 <template>
-	<NuxtLayout>
-
-	</NuxtLayout>
+	<NuxtLayout />
 </template>

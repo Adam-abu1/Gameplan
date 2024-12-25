@@ -1,6 +1,6 @@
 // TODO: Update this to reflect the necesseary format retieved from RAWG.io
 
-import { Platform } from "./Platform";
+import type { Platform } from "./Platform";
 
 export interface Game {
     id: number;

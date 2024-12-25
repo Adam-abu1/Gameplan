@@ -1,11 +1,10 @@
 <template>
-
+  <aside>
+    <div></div>
+  </aside>
 </template>
 
-<script>
-export default {
-	name: "SideBar"
-}
+<script setup lang="ts">
 </script>
 
 <style scoped>
