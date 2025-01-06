@@ -1,5 +1,5 @@
 <template>
-  <Card class="overflow-hidden">
+  <Card class="overflow-hidden game-card w-full h-full flex flex-col">
     <Image src={game.imageUrl} alt={game.title} width={200} height={300} class="w-full object-cover h-48" />
     <CardContent class="p-4">
       <h2 class="text-xl font-semibold mb-2">{{ name }}</h2>
