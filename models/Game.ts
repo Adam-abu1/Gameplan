@@ -9,4 +9,5 @@ export interface Game {
     platforms: Platform[];   // More detailed platform information
     releaseDate: string;
     timeToBeat?: number
+    imageUrl?: string;
 }

@@ -4,6 +4,6 @@ export interface Platform {
     name: string;
     gamesCount?: number;
     imageBackground?: string;
-    yearStart?: number;
-    yearEnd?: number;
+    yearStart?: number | null;
+    yearEnd?: number | null;
 }
