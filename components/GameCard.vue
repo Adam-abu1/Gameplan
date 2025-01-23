@@ -1,7 +1,7 @@
 <template>
   <Card class="overflow-hidden game-card w-full h-full flex flex-col">
     <NuxtImg :src=imageUrl :alt=name class="w-full object-cover h-48" loading="lazy" fit="contain"/>
-    <CardContent class="p-4">
+    <CardContent class="p-4 dark:bg-slate-800 relative">
       <h2 class="text-xl font-semibold mb-2">{{ name }}</h2>
       <p class="text-sm text-gray-600 mb-2">
         <span class="mr-1" v-for="platform in parentPlatforms">{{ platform }}</span>
@@ -24,8 +24,10 @@
         {{ showOrHideButtonText }}
         <Icon name="i-material-symbols-keyboard-double-arrow-down-rounded" size="1.1rem"/>
       </Button>
+      <hr class="dark:gray-900 h-[2px] w-full dark:block hidden dark:mt-1 absolute bottom-0 left-0 border-neutral-200">
+
     </CardContent>
-    <CardFooter class="bg-gray-100 p-4">
+    <CardFooter class="bg-gray-100 dark:bg-slate-800 p-4">
       <div class="flex justify-between w-full">
         <Button class="gap-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 variant="outline">

@@ -10,6 +10,17 @@
 <!--          <li><Button variant="outline">Search</Button></li>-->
         </ul>
       </nav>
+      <input type="checkbox" class="hidden" id="colorMode" v-model="isDark" />
+      <label for="colorMode" class="dark:text-white">
+        <Icon name="i-material-symbols-dark-mode-outline" size="1.5rem"></Icon>
+      </label>
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+
+import { useDark } from '@vueuse/core';
+
+const isDark = useDark();
+</script>

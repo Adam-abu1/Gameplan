@@ -1,5 +1,5 @@
 <template>
-	<div class="layout">
+	<div class="layout dark:bg-gray-700 transition-colors">
     <PageHeader />
     <div class="game-cards grid grid-cols-1 mt-8 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center p-4">
       <GameCard v-for="game in gameArray"
