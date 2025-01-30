@@ -30,6 +30,8 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@iconify-json/cib": "^1.2.2",
+    "@iconify-json/material-symbols": "^1.2.13",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "typescript": "^5.7.2"
   }

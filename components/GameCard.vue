@@ -1,10 +1,13 @@
 <template>
-  <Card class="overflow-hidden game-card w-full h-full flex flex-col">
+  <Card class="overflow-hidden game-card w-full h-full flex flex-col max-w-[500px]">
     <NuxtImg :src=imageUrl :alt=name class="w-full object-cover h-48" loading="lazy" fit="contain"/>
     <CardContent class="p-4 dark:bg-slate-800 relative">
       <h2 class="text-xl font-semibold mb-2">{{ name }}</h2>
-      <p class="text-sm text-gray-600 mb-2">
-        <span class="mr-1" v-for="platform in parentPlatforms">{{ platform }}</span>
+      <p class="text-sm text-gray-6ba00 mb-2">
+        <span v-for="platform in parentPlatforms">
+          <Icon class="align-bottom mr-2" v-if="platformMapping[platform].parentIcon" :name="platformMapping[platform].parentIcon"/>
+          <span v-else class="mr-2">{{ platform }}</span>
+        </span>
       </p>
       <div class="flex justify-between text-sm mb-4">
         <span>MetaCritic Score: {{ rating }}/100</span>
@@ -22,21 +25,21 @@
       </div>
       <Button class="mx-auto flex" variant="ghost" @click="toggleDetails">
         {{ showOrHideButtonText }}
-        <Icon name="i-material-symbols-keyboard-double-arrow-down-rounded" size="1.1rem"/>
+        <Icon name="icons:material-symbols-keyboard-double-arrow-down-rounded" size="1.1rem"/>
       </Button>
       <hr class="dark:gray-900 h-[2px] w-full dark:block hidden dark:mt-1 absolute bottom-0 left-0 border-neutral-200">
 
     </CardContent>
     <CardFooter class="bg-gray-100 dark:bg-slate-800 p-4">
       <div class="flex justify-between w-full">
-        <Button class="gap-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+        <Button class="gap-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 dark:bg-violet-900"
                 variant="outline">
-          <Icon name="i-material-symbols-light-add" size="1.5rem"/>
+          <Icon name="icons:material-symbols-light-add" />
           Wishlist
         </Button>
-        <Button class="gap-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+        <Button class="gap-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 dark:bg-[#564787]"
                 variant="outline">
-          <Icon name="i-material-symbols-light-add" size="1.5rem"/>
+          <Icon name="icons:material-symbols-light-add" />
           Library
         </Button>
       </div>
@@ -54,7 +57,6 @@ const props = defineProps<Game>();
 const getParentPlatforms = (platforms, mapping) => {
   const parentPlatforms = new Set(); // Use a Set to ensure unique values
 
-  console.log(platforms)
   platforms.forEach(({ platform }) => {
 
     const { name } = platform;
