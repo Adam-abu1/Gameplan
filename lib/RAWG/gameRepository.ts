@@ -1,5 +1,6 @@
 import BaseRepository from "~/lib/RAWG/index";
-import type {Game} from "~/models/Game";
+import type { Game, GameDetails} from "~/models/Game";
+import {gamesList} from "~/lib/RAWG/client";
 
 interface FetchGamesParams {
     page?: number;
@@ -25,13 +26,6 @@ interface FetchGamesParams {
     exclude_game_series?: boolean;
     exclude_stores?: string;
     ordering?: string;
-}
-
-interface FetchGamesResponse {
-    count: number;
-    next: string | null;
-    previous: string | null;
-    results: any[]; // Define the `Game` interface with fields from the API if needed
 }
 
 export class GamesRepository extends BaseRepository {
@@ -65,18 +59,25 @@ export class GamesRepository extends BaseRepository {
      */
     async fetchGames(params: FetchGamesParams = {}): Promise<Game[]> {
         this.validateOrdering(params.ordering);
-        const output = await this.get<FetchGamesResponse>("/games", this.buildQueryParams(params));
-
-        return output.results.map((game) => ({
-            id: game.id,
-            name: game.name,
-            rating: game.metacritic,
-            platforms: game.platforms,
-            releaseDate: game.released,
-            timeToBeat: game.playtime,
-            imageUrl: game.background_image
-        }));
-    }
+        try {
+            const { data } = await gamesList({
+                composable: 'useFetch'
+            });
+            // console.log(data.value.results);
+            return data.value.results.map((game) => ({
+                id: game.id,
+                name: game.name,
+                rating: game.metacritic,
+                platforms: game.platforms,
+                releaseDate: game.released,
+                timeToBeat: game.playtime,
+                imageUrl: game.background_image
+            }))
+        } catch (e) {
+            console.log('efds', e);
+            throw e;
+        }
+    };
 
     /**
      * Fetch details of a specific game by its ID.

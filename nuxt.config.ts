@@ -4,10 +4,8 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
   runtimeConfig: {
-    public: {
-      //TODO: THIS ABSOLUTELY SHOULD NOT BE PUBLIC!!!!! YOU IDIOT!!!!
-      rawgApiKey: process.env.NUXT_RAWG_API_KEY
-    }
+    public: {},
+    rawgApiKey: process.env.NUXT_RAWG_API_KEY
   },
   modules: [
     '@nuxtjs/tailwindcss',

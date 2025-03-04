@@ -9,9 +9,12 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "openapi-ts": "openapi-ts"
   },
   "dependencies": {
+    "@hey-api/client-fetch": "^0.8.1",
+    "@hey-api/client-nuxt": "^0.2.2",
     "@nuxt/eslint": "^0.7.4",
     "@nuxt/icon": "^1.10.3",
     "@nuxt/image": "^1.9.0",
@@ -30,6 +33,7 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@hey-api/openapi-ts": "^0.64.3",
     "@iconify-json/cib": "^1.2.2",
     "@iconify-json/material-symbols": "^1.2.13",
     "@nuxtjs/tailwindcss": "^6.12.2",

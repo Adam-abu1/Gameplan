@@ -6,6 +6,7 @@ export interface Platform {
     imageBackground?: string;
     yearStart?: number | null;
     yearEnd?: number | null;
+    image?: string | null;
 }
 
 export const platformMapping = {

@@ -3,7 +3,7 @@ export default abstract class BaseRepository {
     protected apiKey: string;
 
     constructor() {
-        this.baseUrl = 'https://api.rawg.io/api';
+        this.baseUrl = process.env.NUXT_RAWG_BASE_URL;
         this.apiKey = process.env.NUXT_RAWG_API_KEY;
     }
 
