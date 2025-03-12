@@ -61,9 +61,16 @@ export class GamesRepository extends BaseRepository {
         this.validateOrdering(params.ordering);
         try {
             const { data } = await gamesList({
-                composable: 'useFetch'
+                composable: 'useFetch',
+                asyncDataOptions: {
+                    server: true,
+                    transform: (input) => {
+                        console.log('hey there')
+                        return input;
+                    }
+                }
             });
-            // console.log(data.value.results);
+            console.log(3243535);
             return data.value.results.map((game) => ({
                 id: game.id,
                 name: game.name,

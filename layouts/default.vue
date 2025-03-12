@@ -17,7 +17,11 @@
 </template>
 <script setup lang="ts" async>
 import { GamesRepository } from "~/lib/RAWG/gameRepository";
+import {gamesList} from "~/lib/RAWG/client";
 
 const gameRepo = new GamesRepository();
-const gameArray = await gameRepo.fetchGames();
+
+
+// const gameArray = await useFetch('/api/gameRepository');
+
 </script>

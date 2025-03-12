@@ -17,9 +17,11 @@ export type CreateClientConfig<T extends DefaultClientOptions = ClientOptions> =
 export const client = createClient(createClientConfig(createConfig<ClientOptions>({
     baseURL: 'https://api.rawg.io/api',
     onRequest: (context) => {
+        console.log(context);
         const config = useRuntimeConfig();
-        const key = config.rawgApiKey; // You can fetch this dynamically if needed
+        const key = config.rawgApiKey;
         if (key) {
+            console.log('Come into the onRequest');
             const url = new URL(context.request, context.options.baseURL || '');
             url.searchParams.set('key', key);
             context.request = url.toString();
