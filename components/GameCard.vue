@@ -48,10 +48,10 @@
 </template>
 
 <script setup lang="ts">
-import type {Game} from "@/models/Game";
+import type { TransformedGame } from "@/models/Game";
 import { platformMapping } from "~/models/Platform";
 
-const props = defineProps<Game>();
+const props = defineProps<TransformedGame>();
 
 // Function to determine parent platform names
 const getParentPlatforms = (platforms, mapping) => {

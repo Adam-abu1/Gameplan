@@ -1,10 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-03-01',
   ssr: true,
   devtools: { enabled: true },
   runtimeConfig: {
-    public: {},
+    public: {
+      rawgApiBaseURL: process.env.NUXT_RAWG_BASE_URL
+    },
     rawgApiKey: process.env.NUXT_RAWG_API_KEY
   },
   modules: [

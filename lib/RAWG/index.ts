@@ -1,3 +1,5 @@
+import useRawgApi from "~/plugins/useRawgApi";
+
 export default abstract class BaseRepository {
     protected baseUrl: string;
     protected apiKey: string;
@@ -15,10 +17,13 @@ export default abstract class BaseRepository {
     protected async get<T>(endpoint: string, params: Record<string, any> = {}): Promise<T> {
         const queryParams = this.buildQueryParams(params);
         const url = `${this.baseUrl}${endpoint}?${queryParams}`;
-
+        const { rawgApi } = useNuxtApp();
         try {
-            const { data, status, error } = await useAsyncData('games', () => {
-                return $fetch(url);
+            const { data, status, error } = await rawgApi(url, {
+                query: {
+                    ...params,
+                },
+                server: true
             });
 
             if ( error.value ) {

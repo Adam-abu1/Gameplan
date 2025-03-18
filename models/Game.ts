@@ -1,8 +1,8 @@
-// TODO: Update this to reflect the necesseary format retieved from RAWG.io
+// TODO: Update this to reflect the necessary format retieved from RAWG.io
 
 import type { Platform } from "./Platform";
 
-export interface Game {
+export interface TransformedGame {
     id: number;
     name: string;
     rating?: number;
@@ -11,26 +11,6 @@ export interface Game {
     timeToBeat?: number
     imageUrl?: string;
 }
-
-export interface GameDetails {
-    id: number;
-    slug: string;
-    name: string;
-    metacritic?: number;
-    released: string;
-    tba: boolean;
-    background_image: string;
-    background_image_additional?: string;
-    website?: string;
-    playtime: number;
-    parent_platforms: Platform[];
-    platforms: GamePlatformDetails[];
-    stores: StoreDetails[];
-    developers: Developer[];
-    genres: Genre[];
-    tags: Tag[];
-}
-
 
 export interface GamePlatformDetails {
     platform: Platform;
@@ -42,7 +22,7 @@ export interface Requirements {
     minimum?: string;
     recommended?: string;
 }
-x
+
 export interface StoreDetails {
     id: number;
     url: string;

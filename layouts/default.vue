@@ -17,11 +17,12 @@
 </template>
 <script setup lang="ts" async>
 import { GamesRepository } from "~/lib/RAWG/gameRepository";
-import {gamesList} from "~/lib/RAWG/client";
 
-const gameRepo = new GamesRepository();
-
-
-// const gameArray = await useFetch('/api/gameRepository');
-
+const { $rawgApi } = useNuxtApp();
+const gameRepo = new GamesRepository( $rawgApi );
+const {data: gameArray} = await useAsyncData(
+    'games',
+    () => gameRepo.fetchGames(),
+    { server: true }
+)
 </script>
