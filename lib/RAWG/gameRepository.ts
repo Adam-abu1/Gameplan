@@ -1,9 +1,8 @@
-import BaseRepository from "~/lib/RAWG/index";
 import type { Game, GamesListData } from "~/models/rawgTypes";
 import type {TransformedGame} from "~/models/Game";
 import type {$Fetch} from "nitropack";
 
-export class GamesRepository extends BaseRepository {
+export class GamesRepository {
     private allowedOrdering: string[] = [
         "name",
         "released",
@@ -22,7 +21,6 @@ export class GamesRepository extends BaseRepository {
     ];
 
     constructor(private readonly api: $Fetch ) {
-        super();
         this.api = api;
     }
 

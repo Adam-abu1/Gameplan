@@ -16,14 +16,43 @@
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle>Search for Games (TITLE TO BE CHANGED)</DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
+              ENTER YOUR SEARCH TERMS HERE
             </DialogDescription>
           </DialogHeader>
 
+          <Combobox by="label">
+            <ComboboxAnchor class="w-full">
+              <div class="relative w-full max-w-sm items-center">
+                <ComboboxInput class="pl-10" :display-value="(val) => val?.label ?? ''" placeholder="Select framework..." />
+                <span class="absolute start-0 inset-y-0 flex items-center justify-center px-3">
+                  <Icon name="icons:material-symbols-search-rounded" class="items-center flex" />
+                </span>
+              </div>
+            </ComboboxAnchor>
+
+            <ComboboxList>
+              <ComboboxEmpty>
+                No framework found.
+              </ComboboxEmpty>
+
+              <ComboboxGroup>
+                <ComboboxItem
+                    v-for="framework in frameworks"
+                    :key="framework.value"
+                    :value="framework"
+                >
+                  {{ framework.label }}
+
+                  <ComboboxItemIndicator>
+                    <Icon name="icons:material-symbols-search-rounded" class="items-center flex" />
+                  </ComboboxItemIndicator>
+                </ComboboxItem>
+              </ComboboxGroup>
+            </ComboboxList>
+          </Combobox>
           <DialogFooter>
-            Save changes
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -37,8 +66,17 @@
 </template>
 
 <script setup lang="ts">
-
 import { useDark } from '@vueuse/core';
 
+const frameworks = [
+  { value: 'next.js', label: 'Next.js' },
+  { value: 'sveltekit', label: 'SvelteKit' },
+  { value: 'nuxt', label: 'Nuxt' },
+  { value: 'remix', label: 'Remix' },
+  { value: 'astro', label: 'Astro' },
+]
+
 const isDark = useDark();
+
+const foundGames = reactive([]);
 </script>
