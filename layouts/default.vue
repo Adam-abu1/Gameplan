@@ -20,7 +20,7 @@ import { GamesRepository } from "~/lib/RAWG/gameRepository";
 
 const { $rawgApi } = useNuxtApp();
 const gameRepo = new GamesRepository( $rawgApi );
-const {data: gameArray} = await useAsyncData(
+const { data: gameArray } = await useAsyncData(
     'games',
     () => gameRepo.fetchGames(),
     { server: true }
